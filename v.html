@@ -1,0 +1,106 @@
+# 1ST ITEM
+product1 = Products()
+product1.name = 'WINE & GRAPES'
+product1.image = 'My Works/Wine&Grapes2.jpg'
+product1.description = ('Perfect for wine enthusiasts or anyone who'
+                        'appreciates the finer things in life, this'
+                        'piece is an elegant addition to any home,'
+                        'kitchen, or dining area.')
+product1.price = 1499
+
+# 2ND ITEM
+product2 = Products()
+product2.name = 'ABSTRACT'
+product2.image = 'SAM ARTWORKS/ABSTRACT1.webp'
+product2.description = ('Each section of the artwork tells a different'
+                        'story, with layers of paint creating depth and'
+                        'movement.The contrasting elements come together'
+                        'in a way that challenges the eye and ignites the'
+                        'imagination, making each viewing a unique'
+                        'experience.')
+product2.price = 1999
+
+# 3RD ITEM
+product3 = Products()
+product3.name = 'ABSTRACT'
+product3.image = 'SAM ARTWORKS/ABSTRACT2.webp'
+product3.description = ('Each section of the artwork tells a different'
+                        'story, with layers of paint creating depth and'
+                        'movement.The contrasting elements come together'
+                        'in a way that challenges the eye and ignites the'
+                        'imagination, making each viewing a unique'
+                        'experience.')
+product3.price = 1999
+
+# 4TH ITEM
+product4 = Products()
+product4.name = 'MOUNTAIN LANDSCAPE'
+product4.image = 'My Works/MountainLandscape2.jpg'
+product4.description = ('Mountain Landscape is perfect for nature lovers,'
+                        'outdoor enthusiasts, or anyone who seeks a moment'
+                        'of peace and reflection in their daily life. This'
+                        'piece adds a touch of natural elegance to any'
+                        'home, office, or gallery, serving as a constant'
+                        'reminder of the beauty and power of the natural'
+                        'world.')
+product4.price = 1499
+ 
+# 5TH ITEM
+product5 = Products()
+product5.name = 'ABSTRACT'
+product5.image = 'SAM ARTWORKS/ABSTRACT1.webp'
+product5.description = ('Each section of the artwork tells a different'
+                        'story, with layers of paint creating depth and'
+                        'movement.The contrasting elements come together'
+                        'in a way that challenges the eye and ignites the'
+                        'imagination, making each viewing a unique'
+                        'experience.')
+product5.price = 1999
+ 
+# 6TH ITEM
+product6 = Products()
+product6.name = 'ABSTRACT'
+product6.image = 'SAM ARTWORKS/ABSTRACT2.webp'
+product6.description = ('Each section of the artwork tells a different'
+                        'story, with layers of paint creating depth and'
+                        'movement.The contrasting elements come together'
+                        'in a way that challenges the eye and ignites the'
+                        'imagination, making each viewing a unique'
+                        'experience.')
+product6.price = 1999
+      
+all_products = [product1, product2, product3, product4, product5, product6]
+
+
+
+
+
+
+
+
+
+{% for bottles in bottles %}
+<div class="col-lg-4 menu-item">
+  <a href="{{bottles.image.url}}" class="glightbox"><img src="{{bottles.image.url}}" class="menu-img img-fluid" alt=""></a>
+  <h4>{{bottles.name}}</h4>
+  <p class="ingredients">
+    {{bottles.description}}
+  </p>
+  <p class="price">
+   Kshs. {{bottles.price}}
+  </p>
+</div>
+{% endfor %}
+
+
+
+
+
+
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'My Works/ManInTheArena.jpg' %}"><img src="{% static 'My Works/ManInTheArena.jpg' %}" class="img-fluid" alt=""></a></div>
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'My Works/AfricanWoman2.jpg' %}"><img src="{% static 'My Works/AfricanWoman2.jpg' %}" class="img-fluid" alt=""></a></div>
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'My Works/VesselOfHope2.jpg' %}"><img src="{% static 'My Works/VesselOfHope2.jpg' %}" class="img-fluid" alt=""></a></div>
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'My Works/Wine&Grapes2.jpg' %}"><img src="{% static 'My Works/Wine&Grapes2.jpg' %}" class="img-fluid" alt=""></a></div>
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'SAM ARTWORKS/ABSTRACT1.webp' %}"><img src="{% static 'SAM ARTWORKS/ABSTRACT1.webp' %}" class="img-fluid" alt=""></a></div>
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'My Works/MusicAddict.jpg' %}"><img src="{% static 'My Works/MusicAddict.jpg' %}" class="img-fluid" alt=""></a></div>
+<div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{% static 'My Works/Bird&Flowers.jpg' %}"><img src="{% static 'My Works/Bird&Flowers.jpg' %}" class="img-fluid" alt=""></a></div>
