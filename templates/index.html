@@ -18,7 +18,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href=" {% static 'https://fonts.googleapis.com' %}">
   <link rel="preconnect" href=" {% static 'https://fonts.gstatic.com' %}" crossorigin>
-  <link href=" {% static 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap' %}" rel="stylesheet">
+  <link
+    href=" {% static 'https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap' %}"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href=" {% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -37,7 +39,7 @@
     <div class="container d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-        <h1>JB</h1>
+        <h1>jb<span><small>ARTS</small></span></h1>
       </a>
 
       <nav id="navbar" class="navbar">
@@ -50,7 +52,7 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table" href="#book-a-table">Join Our Community</a>
+      <a class="btn-book-a-table" href="Accounts/register">Register</a>
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -58,17 +60,23 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
+
   <section id="hero" class="hero d-flex align-items-center section-bg">
     <div class="container">
       <div class="row justify-content-between gy-5">
-        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h1 data-aos="fade-up">Jambo</h1>
-          <p data-aos="fade-up" data-aos-delay="100">Tired of Boring Walls?<br>Explore Our Diverse Art Collection
+        <div
+          class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          <h1 data-aos="fade-up">Crafted with Passion, Delivered with Care</h1>
+          <p data-aos="fade-up" data-aos-delay="100">
+            Explore Our Diverse Art Collection
           </p>
         </div>
+        {% for otherImages in otherImages %}
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="{% static 'My Works\grey-stripes1.jpg' %}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+          <img src="{{otherImages.image.url}}" class="img-fluid" alt="" data-aos="zoom-out"
+            data-aos-delay="300">
         </div>
+        {% endfor %}
       </div>
     </div>
   </section><!-- End Hero Section -->
@@ -83,14 +91,17 @@
 
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="why-box">
-              <h3>Why Choose JB ARTS?</h3>
+              <h3>Elevate Your Art Collection with JB ARTS</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+                At JB ARTS, we are passionate about bringing your creative visions to life.
+                Our curated selection of high-quality canvases and unique bottle paintings
+                is crafted by skilled artists who pour their heart and soul into every piece.
+                Whether you’re an aspiring artist or a seasoned collector,
+                we provide the tools and inspiration to elevate your artistic journey.
+                Experience unmatched quality, exceptional customer service,
+                and a community that celebrates creativity. Choose JB ARTS to transform your space with art that speaks
+                to you.
               </p>
-              <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
-              </div>
             </div>
           </div><!-- End Why Box -->
 
@@ -100,24 +111,34 @@
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-clipboard-data"></i>
-                  <h4>Corporis voluptates officia eiusmod</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <h4>Canvas Art</h4>
+                  <p>Crafted with love, our premium canvases are more than just surfaces; they are the beginnings of
+                    dreams,
+                    the expressions of emotions, and the reflections of your soul.Our collection features a stunning
+                    array of <strong><em> African art</em></strong>,
+                    <strong><em>Abstract art</em></strong>, <strong><em>Landscape Paintings</em></strong> and many more.
+                  </p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-gem"></i>
-                  <h4>Ullamco laboris ladore pan</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <h4>Bottle Art</h4>
+                  <p>
+                    Imbued with personal stories, our bottle art pieces resonate with a profound sense of creativity
+                    and passion.Our commitment to <strong><em>environmental conservation</em></strong> is woven into
+                    every bottle art creation.
+                    By upcycling and repurposing glass bottles, we breathe new life into discarded materials, reducing
+                    waste and leaving a positive impact on our planet.
+                  </p>
                 </div>
               </div><!-- End Icon Box -->
 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
                 <div class="icon-box d-flex flex-column justify-content-center align-items-center">
                   <i class="bi bi-inboxes"></i>
-                  <h4>Labore consequatur incidid dolore</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <h4><em><strong>CREATIVITY & CONSERVATION</strong></em></h4>
                 </div>
               </div><!-- End Icon Box -->
             </div>
@@ -126,41 +147,11 @@
       </div>
     </section><!-- End Why Us Section -->
 
-    <!-- ======= Stats Counter Section ======= -->
-    <section id="stats-counter" class="stats-counter">
-      <div class="container" data-aos="zoom-out">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Clients</p>
-            </div>
-          </div><!-- End Stats Item -->
-
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="60" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Artworks</p>
-            </div>
-          </div><!-- End Stats Item -->
-          
-          <div class="col-lg-3 col-md-6">
-            <div class="stats-item text-center w-100 h-100">
-              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>
-              <p>Artworks Sold</p>
-            </div>
-          </div><!-- End Stats Item -->
-<!-- End Stats Item -->
-        </div>
-      </div>
-    </section><!-- End Stats Counter Section -->
 
 
+    <!-- ======= STORE SECTION ======= -->
 
 
-    <!-- ======= MENU SECTION======= -->
     <section id="store" class="menu">
       <div class="container" data-aos="fade-up">
 
@@ -201,22 +192,23 @@
               <!-- PRODUCTS -->
               <!-- for loop -->
 
-              {% for products in products %}
+              {% for canvas in canvas %}
               <div class="col-lg-4 menu-item">
-                <a href="{{products.image.url}}" class="glightbox"><img src="{{products.image.url}}" class="menu-img img-fluid" alt=""></a>
-                <h4>{{products.name}}</h4>
+                <a href="{{canvas.image.url}}" class="glightbox"><img src="{{canvas.image.url}}"
+                    class="menu-img img-fluid" alt=""></a>
+                <h4>{{canvas.name}}</h4>
                 <p class="ingredients">
-                  {{products.description}}
+                  {{canvas.description}}
                 </p>
                 <p class="price">
-                  Kshs. {{products.price}}
+                  Kshs. {{canvas.price}}
                 </p>
               </div>
               {% endfor %}
             </div>
           </div>
 
-          
+
           <!-- BOTTLE PAINTINGS -->
           <div class="tab-pane fade" id="menu-breakfast">
 
@@ -226,16 +218,17 @@
 
             <div class="row gy-5">
               <!-- BOTTLES -->
-               <!-- LOOP -->
+              <!-- LOOP -->
               {% for bottle in bottle %}
               <div class="col-lg-4 menu-item">
-                <a href="{{bottle.image.url}}" class="glightbox"><img src="{{bottle.image.url}}" class="menu-img img-fluid" alt=""></a>
+                <a href="{{bottle.image.url}}" class="glightbox"><img src="{{bottle.image.url}}"
+                    class="menu-img img-fluid" alt=""></a>
                 <h4>{{bottle.name}}</h4>
                 <p class="ingredients">
                   {{bottle.description}}
                 </p>
                 <p class="price">
-                 Kshs. {{bottle.price}}
+                  Kshs. {{bottle.price}}
                 </p>
               </div><!-- Menu Item -->
               {% endfor %}
@@ -257,10 +250,9 @@
           <h2>Testimonials</h2>
           <p>From My <span>Esteemed Clients</span></p>
         </div>
-
         <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">
-
+            {% for testimonial in testimonial %}
             <div class="swiper-slide">
               <div class="testimonial-item">
                 <div class="row gy-4 justify-content-center">
@@ -268,102 +260,29 @@
                     <div class="testimonial-content">
                       <p>
                         <i class="bi bi-quote quote-icon-left"></i>
-                        Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                        {{testimonial.testimonial}}
                         <i class="bi bi-quote quote-icon-right"></i>
                       </p>
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
+                      <h3>{{testimonial.name}}</h3>
+                      <h4>{{testimonial.description}}</h4>
                       <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                          class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-2 text-center">
-                    <img src="{% static 'assets/img/testimonials/testimonials-1.jpg' %}" class="img-fluid testimonial-img" alt="">
+                    <img src="{{testimonial.image.url}}" class="img-fluid testimonial-img" alt="img">
                   </div>
                 </div>
               </div>
             </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Sara Wilsson</h3>
-                      <h4>Designer</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="{% static 'assets/img/testimonials/testimonials-2.jpg' %}" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>Jena Karlis</h3>
-                      <h4>Store Owner</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="{% static 'assets/img/testimonials/testimonials-3.jpg' %}" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
-            <div class="swiper-slide">
-              <div class="testimonial-item">
-                <div class="row gy-4 justify-content-center">
-                  <div class="col-lg-6">
-                    <div class="testimonial-content">
-                      <p>
-                        <i class="bi bi-quote quote-icon-left"></i>
-                        Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                        <i class="bi bi-quote quote-icon-right"></i>
-                      </p>
-                      <h3>John Larson</h3>
-                      <h4>Entrepreneur</h4>
-                      <div class="stars">
-                        <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-2 text-center">
-                    <img src="{% static 'assets/img/testimonials/testimonials-4.jpg' %}" class="img-fluid testimonial-img" alt="">
-                  </div>
-                </div>
-              </div>
-            </div><!-- End testimonial item -->
-
+            {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
     </section><!-- End Testimonials Section -->
-
 
 
     <!-- ======= ARTISTS SECTION ======= -->
@@ -377,11 +296,11 @@
         </div>
 
         <div class="row gy-4">
-
+          {% for artist in artist %}
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="chef-member">
               <div class="member-img">
-                <img src="{% static 'SAM ARTWORKS/profile-images/IMG-20231030-WA0013.jpg' %}" class="img-fluid" alt="">
+                <img src="{{artist.image.url}}" class="img-fluid" alt="">
                 <div class="social">
                   <a href="https://x.com/jbartske?t=3AOzni0K3-QMEgeoa8bhUw&s=09"><i class="bi bi-twitter"></i></a>
                   <a href="https://www.instagram.com/jbarts___/"><i class="bi bi-instagram"></i></a>
@@ -389,13 +308,14 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Joseph Barasa</h4>
-                <span>JB</span>
-                <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum exercitationem iure minima enim corporis et voluptate.</p>
+                <h4>{{artist.name}}</h4>
+                <span>{{artist.title}}</span>
+                <p>{{artist.description}}</p>
               </div>
+              <a class="btn-book-a-table" href="">Learn More About {{artist.name}}</a>
             </div>
           </div><!-- End The Artist -->
-
+          {% endfor %}
         </div>
 
       </div>
@@ -414,33 +334,41 @@
 
         <div class="row g-0">
 
-          <div class="col-lg-4 reservation-img" style="background-image: url('My Works/BottleCollection.jpg');" data-aos="zoom-out" data-aos-delay="200"></div>
+          <div class="col-lg-4 reservation-img" style="background-image: url('My Works/BottleCollection.jpg');"
+            data-aos="zoom-out" data-aos-delay="200"></div>
 
           <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+              data-aos-delay="100">
               <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
+                    data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
+                    data-rule="email" data-msg="Please enter a valid email">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone"
+                    data-rule="minlen:4" data-msg="Please enter at least 4 chars">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                  <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4"
+                    data-msg="Please enter at least 4 chars">
                   <div class="validate"></div>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+                  <input type="number" class="form-control" name="people" id="people" placeholder="# of people"
+                    data-rule="minlen:1" data-msg="Please enter at least 1 chars">
                   <div class="validate"></div>
                 </div>
               </div>
@@ -451,7 +379,8 @@
               <div class="mb-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
-                <div class="sent-message">Your commission request was sent. We will call back or send an Email to confirm your request. Thank you!</div>
+                <div class="sent-message">Your commission request was sent. We will call back or send an Email to
+                  confirm your request. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Make Your Order</button></div>
             </form>
@@ -477,7 +406,8 @@
         <div class="gallery-slider swiper">
           <div class="swiper-wrapper align-items-center">
             {% for gall in gall %}
-            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="{{ gall.image.url }}"><img src="{{ gall.image.url }}" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery"
+                href="{{ gall.image.url }}"><img src="{{ gall.image.url }}" class="img-fluid" alt=""></a></div>
             {% endfor %}
           </div>
           <div class="swiper-pagination"></div>
@@ -493,15 +423,10 @@
 
         <div class="section-header">
           <h2>Contact</h2>
-          <p>Need Help? <span>Talk To Us</span></p>
+          <p>Talk <span>To Us</span></p>
         </div>
-
-        <div class="mb-3">
-          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-        </div><!-- End Google Maps -->
-
         <div class="row gy-4">
-<!-- End Info Item -->
+          <!-- End Info Item -->
 
           <div class="col-md-6">
             <div class="info-item d-flex align-items-center">
@@ -554,12 +479,16 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
+
   <footer id="footer" class="footer">
 
     <div class="container">
       <div class="row gy-3">
         <div class="col-lg-3 col-md-6 d-flex">
-          <i class="bi bi-geo-alt icon"></i>
+          <div class="copyright">
+            &copy; <strong><span>JB ARTS</span></strong><br>
+            <small>Thankyou For Visiting Our Store.</small>
+          </div>
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links d-flex">
@@ -576,7 +505,8 @@
         <div class="col-lg-3 col-md-6 footer-links">
           <h4>Follow Us</h4>
           <div class="social-links d-flex">
-            <a href="https://x.com/jbartske?t=3AOzni0K3-QMEgeoa8bhUw&s=09" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://x.com/jbartske?t=3AOzni0K3-QMEgeoa8bhUw&s=09" class="twitter"><i
+                class="bi bi-twitter"></i></a>
             <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
             <a href="https://www.instagram.com/jbarts___/" class="instagram"><i class="bi bi-instagram"></i></a>
             <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
@@ -598,7 +528,8 @@
   </footer><!-- End Footer -->
   <!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
 

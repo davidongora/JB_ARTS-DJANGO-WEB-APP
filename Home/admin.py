@@ -1,8 +1,11 @@
 from django.contrib import admin
-from .models import Products, Bottles, Gallery
+from .models import Canvas, Bottles, Gallery, Testimonials, Artists, OtherImages
 
 # Register your models here.
 
-admin.site.register(Products)
+admin.site.register(Canvas)
 admin.site.register(Bottles)
 admin.site.register(Gallery)
+admin.site.register(Testimonials)
+admin.site.register(Artists)
+admin.site.register(OtherImages)

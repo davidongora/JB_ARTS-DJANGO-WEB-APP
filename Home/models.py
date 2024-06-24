@@ -4,9 +4,13 @@ from django.db import models
 
 
 # Canvas & Bottle Paintings Class
-
-
-class Products(models.Model):
+    
+    
+class OtherImages(models.Model):
+    image = models.ImageField(upload_to='otherImages')
+    
+    
+class Canvas(models.Model):
     image = models.ImageField(upload_to='prodpics')
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -24,3 +28,17 @@ class Bottles(models.Model):
     
 class Gallery(models.Model):
     image = models.ImageField(upload_to='prodpics')
+    
+    
+class Testimonials(models.Model):
+    image = models.ImageField(upload_to='testimonialpics')
+    testimonial = models.TextField()
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=50)
+    
+    
+class Artists(models.Model):
+    image = models.ImageField(upload_to='artistpics')
+    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
+    description = models.TextField()
