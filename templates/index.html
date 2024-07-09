@@ -52,7 +52,12 @@
         </ul>
       </nav><!-- .navbar -->
 
-      <a class="btn-book-a-table" href="Accounts/register">Register</a>
+      {% if user.is_authenticated %}
+      <a class="btn-book-a-table" href="Accounts/signout">Sign Out</a>
+      {% else %}
+      <a class="btn-book-a-table" href="Accounts/register">Sign Up</a>
+      <a class="btn-book-a-table" href="Accounts/signin">Sign In</a>
+      {% endif %}
       <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
       <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
 
@@ -64,13 +69,16 @@
   <section id="hero" class="hero d-flex align-items-center section-bg">
     <div class="container">
       <div class="row justify-content-between gy-5">
-        <div
-          class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
-          <h1 data-aos="fade-up">Crafted with Passion, Delivered with Care</h1>
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          {% if user.is_authenticated %}
+              <h1><small>HELLO </small><em><small><strong>{{ user.first_name }},</strong></small></em></h1>
+          {% endif %}
+          <h1 data-aos="fade-up">Discover art crafted with passion and explore our diverse collection</h1>
           <p data-aos="fade-up" data-aos-delay="100">
-            Explore Our Diverse Art Collection
+            Start your art journey here
           </p>
-        </div>
+      </div>
+      
         {% for otherImages in otherImages %}
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
           <img src="{{otherImages.image.url}}" class="img-fluid" alt="" data-aos="zoom-out"
@@ -248,7 +256,7 @@
 
         <div class="section-header">
           <h2>Testimonials</h2>
-          <p>From My <span>Esteemed Clients</span></p>
+          <p>From Our <span>Esteemed Clients</span></p>
         </div>
         <div class="slides-1 swiper" data-aos="fade-up" data-aos-delay="100">
           <div class="swiper-wrapper">

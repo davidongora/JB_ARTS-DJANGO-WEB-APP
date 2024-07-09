@@ -9,16 +9,34 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+# WEB DEPLOYMENT-HEROKU
+import django_heroku
+import dj_database_url
 
 import os
 from pathlib import Path
+
+
 
 # to install PyMySQL as the MySQL driver
 import pymysql
 pymysql.install_as_MySQLdb()
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# EMAIL VERIFICATION
+
+#  For production, use an SMTP server
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'josephbarasa622@gmail.com'
+EMAIL_HOST_PASSWORD = 'kftqzcuudugyjdlr'
+DEFAULT_FROM_EMAIL = 'josephbarasa622@gmail.com'
 
 
 # Quick-start development settings - unsuitable for production
@@ -30,7 +48,7 @@ SECRET_KEY = 'django-insecure-3c7_6$z32#+3-50d_f29zxlvm$vgah4e73i#b3w4q6c=2x&4!7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -133,6 +151,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files_django')
+django_heroku.settings(locals())
 
 
 
