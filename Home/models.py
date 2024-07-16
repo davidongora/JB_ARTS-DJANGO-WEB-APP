@@ -13,15 +13,16 @@ class OtherImages(models.Model):
 class Canvas(models.Model):
     image = models.ImageField(upload_to='prodpics')
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     medium = models.CharField(max_length=100)
+    size = models.CharField(max_length=50)
 
 
 class Bottles(models.Model):
     image = models.ImageField(upload_to='prodpics')
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(blank=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0.0)
     medium = models.CharField(max_length=100)
     
@@ -42,3 +43,8 @@ class Artists(models.Model):
     name = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
     description = models.TextField()
+    
+
+class Order(models.Model):
+    pass
+    

@@ -36,7 +36,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'josephbarasa622@gmail.com'
 EMAIL_HOST_PASSWORD = 'kftqzcuudugyjdlr'
-DEFAULT_FROM_EMAIL = 'josephbarasa622@gmail.com'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 # Quick-start development settings - unsuitable for production
@@ -144,6 +144,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
@@ -152,6 +153,8 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files_django')
 django_heroku.settings(locals())
+
+
 
 
 

@@ -20,7 +20,7 @@
 /* Colors */
 :root {
   --color-default: #212529;
-  --color-primary: #ce1212;
+  --color-primary: #000000;
   --color-secondary: #37373f;
 }
 
@@ -639,7 +639,6 @@ section {
 --------------------------------------------------------------*/
 .why-us .why-box {
   padding: 30px;
-  background: var(--color-primary);
   color: #fff;
 }
 
@@ -799,7 +798,7 @@ section {
 
 .menu .nav-link.active {
   color: var(--color-primary);
-  border-color: var(--color-primary);
+  border-color: var(--color-dark);
 }
 
 .menu .tab-content .tab-header {
