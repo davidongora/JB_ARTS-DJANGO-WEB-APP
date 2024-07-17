@@ -20,6 +20,7 @@ from pathlib import Path
 
 # to install PyMySQL as the MySQL driver
 import pymysql
+from django.conf.global_settings import EMAIL_USE_SSL
 pymysql.install_as_MySQLdb()
 
 
@@ -30,13 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # EMAIL VERIFICATION
 
 #  For production, use an SMTP server
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.example.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'josephbarasa622@gmail.com'
-EMAIL_HOST_PASSWORD = 'kftqzcuudugyjdlr'
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -171,3 +167,9 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'josephbarasa622@gmail.com'
+EMAIL_HOST_PASSWORD = 'kftqzcuudugyjdlr'
