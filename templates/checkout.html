@@ -5,28 +5,36 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+
     <div class="container mt-5">
-        <h3>Hello {{user.first_name}}, you are purchasing Alusa!{{canvas.name}} </h3>
+        <div class="text-center">
+            <h3 cass="text-center">{{user.first_name}}, you are purchasing : <strong><em>{{ product.name }}</em></strong></h3>
+        </div>
         <form method="post" action="">
             {% csrf_token %}
             <div class="row">
-                <!-- col 1 -->
-                <div class="row">
+
+                 <div class="col">
                     <div class="card" style="width: 18rem;">
-                        <img src="..." class="card-img-top" alt="...">
+                        <a href="{{product.image.url}}" class="glightbox card-img-top"><img src="{{product.image.url}}"
+                            class="menu-img img-fluid" alt=""></a>
                         <div class="card-body">
-                            <h5 class="card-title">Alusa !</h5>
-                            <p class="card-text">Price : </p>
-                            <p class="card-text">Medium : </p>
-                            <p class="card-text"><strong><em>About Alusa :</em></strong></p>
+                            <h5 class="card-title">Name : {{ product.name }}</h5>
+                            <p class="card-text">Price : Kshs.{{ product.price }} </p>
+                            <p class="card-text">{{ order.quantity }}</p>
+                            <p class="card-text"><strong><em>About {{ product.name }} :</em></strong></p>
                         </div>
-                      </div>
+                    </div>
                  </div>
-                 <!-- col 2 -->
+
                 <div class="col">
                     <div class="form-group">
                         <label for="name">Name</label>
                         <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -49,5 +57,6 @@
         </div>
     
     </div>
+
 </body>
 </html>

@@ -1,12 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
-from .models import *
+from .models import Canvas, Bottles, Gallery, Testimonials, Artists, OtherImages, Order
 from django.urls import reverse
-from django.http import HttpResponse
-# Canvas, Bottles, Gallery, Testimonials, Artists, OtherImages, Order
-# Create your views here.
 
 
 def home(request):
@@ -21,33 +18,75 @@ def home(request):
                    'testimonial': testimonial, 'artist': artist,
                    'otherImages': otherImages}
                   )
+    
 
-
-def checkout(request):
+def checkout(request, product_type, product_id):
     if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         address = request.POST.get('address')
+        phone = request.POST.get('phone')
 
-        Order.objects.create(
+        if product_type == 'canvas':
+            product = get_object_or_404(Canvas, id=product_id)
+        elif product_type == 'bottle':
+            product = get_object_or_404(Bottles, id=product_id)
+        else:
+            messages.error(request, 'Invalid product type')
+            return redirect('store')
+
+        order = Order.objects.create(
+            product_type=product_type,
+            product_id=product.id,
             name=name,
             email=email,
-            address=address
+            address=address,
+            phone=phone,
+            quantity=1,
+            total_price=product.price
         )
 
-        # send email
-        email_message = f"Address: \n{address}\n\n\n From: \n{name}\n{email}"
+        # Send email
+        email_message = f"A new order has been placed for {name} Address: \n{address}\n\n\n From {name}\n{email}"
+        user_message = f"Your order for {name} price KSh{product.price}"
         try:
             send_mail(
                 subject="New Order",
                 message=email_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['josephbarasa622@gmail.com'],
+                recipient_list=['josephbarasa622@gmail.com','kelalianda@gmail.com'],
                 fail_silently=False,
             )
-            messages.success(request, 'You have an email')
+            send_mail(
+                subject="YOUR ORDER HAS BEEN PLACED",
+                message=user_message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[email],
+                fail_silently=False,
+            )
+            messages.success(request, 'Your request has been sent, kindly wait as we process your order.')
         except Exception as e:
             print(f'Error sending email! {e}')
             messages.error(request, 'Failed to send email')
+        
+        return redirect('order_detail', order_id=order.id)
 
-    return render(request, 'checkout.html')
+    else:
+        if product_type == 'canvas':
+            product = get_object_or_404(Canvas, id=product_id)
+        elif product_type == 'bottle':
+            product = get_object_or_404(Bottles, id=product_id)
+        else:
+            messages.error(request, 'Invalid product type')
+            return redirect('store')
+
+        return render(request, 'checkout.html', {'product': product})
+    
+    
+def order_detail(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
+    if order.product_type == 'canvas':
+        product = get_object_or_404(Canvas, id=order.product_id)
+    elif order.product_type == 'bottle':
+        product = get_object_or_404(Bottles, id=order.product_id)
+    return render(request, 'checkout.html', {'order': order, 'product': product})

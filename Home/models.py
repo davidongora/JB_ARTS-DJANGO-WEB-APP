@@ -46,6 +46,17 @@ class Artists(models.Model):
     
 
 class Order(models.Model):
+    PRODUCT_TYPE_CHOICES = [
+        ('canvas', 'Canvas'),
+        ('bottle', 'Bottle'),
+    ]
+    product_type = models.CharField(max_length=10, choices=PRODUCT_TYPE_CHOICES, default='art')
+    product_id = models.PositiveIntegerField(default=0)
     name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=30, default='254')
     email = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
+    quantity = models.PositiveIntegerField(default=1)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    
+

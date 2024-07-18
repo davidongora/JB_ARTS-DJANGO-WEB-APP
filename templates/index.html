@@ -218,7 +218,8 @@
                 <p class=" text-dark">
                   Kshs. {{canvas.price}}
                 </p>
-                <a type="button" class="btn btn-dark" href="Home/checkout">Order</a>
+                <!-- <a type="button" class="btn btn-dark" href="Home/checkout">Order</a> -->
+                <a href="{% url 'checkout' 'canvas' canvas.id %}">Buy</a>
               </div>
               {% endfor %}
             </div>
@@ -249,7 +250,8 @@
                 <p class="text-dark">
                   Kshs. {{bottle.price}}
                 </p>
-                <a type="button" class="btn btn-dark" href="Home/checkout">Order</a>
+                <!-- <a type="button" class="btn btn-dark" href="Home/checkout">Order</a> -->
+                <a href="{% url 'checkout' 'bottle' bottle.id %}">Buy</a>
               </div><!-- Menu Item -->
               {% endfor %}
             </div>
@@ -472,6 +474,25 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <div id="preloader"></div>
+
+
+  <script>
+    function buyProduct(productType, productId) {
+        fetch(`/create_order/${productType}/${productId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        }).then(response => {
+            if (response.redirected) {
+                window.location.href = response.url;
+            }
+        });
+    }
+  </script>
+
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
