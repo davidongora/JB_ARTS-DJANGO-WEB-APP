@@ -48,7 +48,6 @@ def checkout(request, product_type, product_id):
 
         # Send email
         email_message = f"A new order has been placed for {name} Address: \n{address}\n\n\n From {name}\n{email}"
-        user_message = f"Your order for {name} price KSh{product.price}"
         try:
             send_mail(
                 subject="New Order",
@@ -57,18 +56,22 @@ def checkout(request, product_type, product_id):
                 recipient_list=['josephbarasa622@gmail.com','kelalianda@gmail.com'],
                 fail_silently=False,
             )
-            send_mail(
-                subject="YOUR ORDER HAS BEEN PLACED",
-                message=user_message,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[email],
-                fail_silently=False,
-            )
             messages.success(request, 'Your request has been sent, kindly wait as we process your order.')
         except Exception as e:
             print(f'Error sending email! {e}')
             messages.error(request, 'Failed to send email')
-        
+        user_email_message = f"Dear {name},\n\nThank you for your order.\n\nProduct: {product.name}\nQuantity: 1\nTotal Price:Kshs.{product.price}\n\nWe will process your order shortly.\n\nBest regards,\nJB ARTS"
+        try:
+            send_mail(
+                subject="Order Confirmation",
+                message=user_email_message,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[email],
+                fail_silently=False,
+            )
+        except Exception as e:
+            print(f'Error sending email to user! {e}')
+            messages.error(request, 'Failed to send order confirmation email to you')
         return redirect('order_detail', order_id=order.id)
 
     else:
