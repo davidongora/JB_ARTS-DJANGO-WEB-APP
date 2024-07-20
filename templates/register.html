@@ -11,20 +11,28 @@
 <body>
     <form action="register" method="POST">
         {% csrf_token %}
-        <div class="row">
-            <div class="col">
-                <input type="text" name="first_name" placeholder="First Name"><br>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="first_name">
             </div>
-            <div clas="col">
-                <input type="text" name="last_name" placeholder="Last Name"><br>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="last_name">
             </div>
-        </div>
-        <input type="text" name="username" placeholder="User Name"><br>
-        <input type="email" name="email" placeholder="email@gmail.com"><br>
-        <input type="password" name="password1" placeholder="Password"><br>
-        <input type="password" name="password2" placeholder="Confirm Password"><br>
-        <input type="submit">
 
+            <label class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="first_name">
+            </div>
+          </div>
+          <input type="text" name="username" placeholder="User Name"><br>
+          <input type="email" name="email" placeholder="email@gmail.com"><br>
+          <input type="password" name="password1" placeholder="Password"><br>
+          <input type="password" name="password2" placeholder="Confirm Password"><br>
+          <input type="submit">
     </form>
     <p>Already have an account? <a href="{% url 'signin' %}">Login here</a></p>
 

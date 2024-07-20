@@ -56,11 +56,11 @@ def checkout(request, product_type, product_id):
                 recipient_list=['josephbarasa622@gmail.com','kelalianda@gmail.com'],
                 fail_silently=False,
             )
-            messages.success(request, 'Your request has been sent, kindly wait as we process your order.')
+            messages.success(request, 'YOUR REQUEST HAS BEEN SENT, KINDLY WAIT AS WE PROCESS YOUR ORDER')
         except Exception as e:
             print(f'Error sending email! {e}')
             messages.error(request, 'Failed to send email')
-        user_email_message = f"Dear {name},\n\nThank you for your order.\n\nProduct: {product.name}\nQuantity: 1\nTotal Price:Kshs.{product.price}\n\nWe will process your order shortly.\n\nBest regards,\nJB ARTS"
+        user_email_message = f"Dear {name},\n\nYour order has been recieved and it's being processed.\n\nProduct : {product.name}\nQuantity : 1\nTotal Price : Kshs.{product.price}\n\nWe will get back to you shortly.\n\nThankyou,\nJB ARTS"
         try:
             send_mail(
                 subject="Order Confirmation",

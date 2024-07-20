@@ -219,7 +219,7 @@
                   Kshs. {{canvas.price}}
                 </p>
                 <!-- <a type="button" class="btn btn-dark" href="Home/checkout">Order</a> -->
-                <a href="{% url 'checkout' 'canvas' canvas.id %}">Buy</a>
+                <a type="button" class="btn btn-dark" href="{% url 'checkout' 'canvas' canvas.id %}">Buy</a>
               </div>
               {% endfor %}
             </div>
@@ -251,7 +251,7 @@
                   Kshs. {{bottle.price}}
                 </p>
                 <!-- <a type="button" class="btn btn-dark" href="Home/checkout">Order</a> -->
-                <a href="{% url 'checkout' 'bottle' bottle.id %}">Buy</a>
+                <a type="button" class="btn btn-dark" href="{% url 'checkout' 'bottle' bottle.id %}">Buy</a>
               </div><!-- Menu Item -->
               {% endfor %}
             </div>
@@ -463,7 +463,7 @@
         &copy; Copyright <strong><span>JB ARTS</span></strong><br> All Rights Reserved
       </div>
       <div class="credits">
-        Designed by<a href="https://bootstrapmade.com/"> <strong>THE JB ARTS DEVELOPERS & ALIANDA</strong></a>
+        Designed by<a href=""> <strong>THE JB ARTS DEVELOPERS & <a href="https://aliandakelly.netlify.app" target="_blank"> ALIANDA</a></strong></a>
       </div>
     </div>
 
