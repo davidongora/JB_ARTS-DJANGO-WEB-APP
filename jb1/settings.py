@@ -58,6 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Accounts',
+    'Home',
+    'jb1'
 ]
 
 MIDDLEWARE = [
@@ -100,7 +103,7 @@ DATABASES = {
         'NAME': 'jbartsweb',
         'USER': 'jb',
         'PASSWORD': 'jbarts',
-        'HOST': 'nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',  
+        'HOST': 'localhost',  
         'PORT': '3306',
     }
 }
