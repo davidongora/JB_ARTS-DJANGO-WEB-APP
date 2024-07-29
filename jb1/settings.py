@@ -15,6 +15,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import django_heroku
 import dj_database_url
 
+
 import os
 from pathlib import Path
 
@@ -97,16 +98,12 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jbartsweb',
-        'USER': 'jb',
-        'PASSWORD': 'jbarts',
-        'HOST': 'nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',  
-        'PORT': '3306',
-    }
+    'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb')
 }
+
 
 
 # Password validation
