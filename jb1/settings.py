@@ -101,7 +101,7 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb')
+    'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb?sslmode=disable'),
 }
 
 
