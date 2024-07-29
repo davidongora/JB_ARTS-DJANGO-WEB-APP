@@ -101,7 +101,12 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb?sslmode=disable'),
+    'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb'),
+    'OPTIONS': {
+        'ssl': {
+            'ca': '/path/to/ca.pem',  # Path to CA certificate
+        },
+    },
 }
 
 
