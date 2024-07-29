@@ -9,12 +9,15 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
+
 # WEB DEPLOYMENT-HEROKU
 import django_heroku
 import dj_database_url
 
 import os
 from pathlib import Path
+
 
 
 
@@ -100,7 +103,7 @@ DATABASES = {
         'NAME': 'jbartsweb',
         'USER': 'jb',
         'PASSWORD': 'jbarts',
-        'HOST': 'mysql://cwjfjrm0s7tk6oar:esq45ychtvqo6kk9@nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/y5ws8xuxtqamtg4p',  
+        'HOST': 'nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',  
         'PORT': '3306',
     }
 }
@@ -173,3 +176,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'josephbarasa622@gmail.com'
 EMAIL_HOST_PASSWORD = 'kftqzcuudugyjdlr'
+
+
+
+
