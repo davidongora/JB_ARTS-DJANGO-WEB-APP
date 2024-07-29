@@ -1,3 +1,10 @@
+It seems like Heroku's `DATABASE_URL` is automatically adding some parameters, including potentially `sslmode`. Here’s how to address it by manually configuring your database settings without using `dj_database_url`.
+
+Update your `settings.py` to explicitly define the database settings without relying on `dj_database_url`. This will ensure that no unwanted parameters are passed.
+
+### Updated `settings.py`:
+
+```python
 """
 Django settings for jb1 project.
 
@@ -155,3 +162,26 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'josephbarasa622@gmail.com'
 EMAIL_HOST_PASSWORD = 'kftqzcuudugyjdlr'
+```
+
+In this updated configuration:
+
+1. **Removed `dj_database_url` usage**: This ensures that no unwanted parameters are being added by `dj_database_url`.
+2. **Explicitly defined database options**: If you need SSL, you can use the `'OPTIONS': {'ssl': {'ca': '/etc/ssl/certs/ca-certificates.crt'}}` configuration to provide the required SSL certificate.
+
+### Steps to Apply Changes:
+
+1. **Update `settings.py`**: Replace the database configuration section in your `settings.py` with the provided manual configuration.
+2. **Deploy to Heroku**:
+   ```bash
+   git add .
+   git commit -m "Updated database configuration to avoid sslmode error"
+   git push heroku master
+   ```
+
+3. **Run Migrations**:
+   ```bash
+   heroku run python manage.py migrate
+   ```
+
+This should help resolve the `sslmode` error by ensuring that only the required parameters are passed to the database connection.

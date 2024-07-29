@@ -86,11 +86,12 @@
           <h1 data-aos="fade-up">Discover art crafted with passion and explore our diverse collection</h1>
        </div>
       
+        {% for otherImages in otherImages %}
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
           <img src="{{otherImages.image.url}}" class="img-fluid img-thumbnail" alt="" data-aos="zoom-out"
             data-aos-delay="300">
         </div>
-     
+        {% endfor %}
       </div>
     </div>
   </section><!-- End Hero Section -->
@@ -258,7 +259,7 @@
         </div>
 
       </div>
-    </sect
+    </section>
 
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
