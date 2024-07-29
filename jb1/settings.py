@@ -13,6 +13,7 @@ import logging
 import os
 from pathlib import Path
 import pymysql
+import django_heroku  # Import here
 
 # to install PyMySQL as the MySQL driver
 pymysql.install_as_MySQLdb()
