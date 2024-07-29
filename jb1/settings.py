@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-
+import logging
 
 # WEB DEPLOYMENT-HEROKU
 import django_heroku
@@ -20,22 +20,17 @@ import os
 from pathlib import Path
 
 
-
-
 # to install PyMySQL as the MySQL driver
 import pymysql
 from django.conf.global_settings import EMAIL_USE_SSL
 pymysql.install_as_MySQLdb()
 
+#  debugging information
+logger = logging.getLogger('django.db.backends')
+logger.setLevel(logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# EMAIL VERIFICATION
-
-#  For production, use an SMTP server
-
 
 
 
@@ -102,11 +97,6 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb'),
-    'OPTIONS': {
-        'ssl': {
-            'ca': '/path/to/ca.pem',  # Path to CA certificate
-        },
-    },
 }
 
 
