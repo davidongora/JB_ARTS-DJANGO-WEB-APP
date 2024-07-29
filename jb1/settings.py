@@ -100,7 +100,7 @@ DATABASES = {
         'NAME': 'jbartsweb',
         'USER': 'jb',
         'PASSWORD': 'jbarts',
-        'HOST': 'localhost',  
+        'HOST': 'nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',  
         'PORT': '3306',
     }
 }
