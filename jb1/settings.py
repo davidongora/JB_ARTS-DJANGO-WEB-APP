@@ -96,8 +96,19 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 
 
 DATABASES = {
-    'default': dj_database_url.config(default='mysql://jb:jbarts@mysql/jbartsweb'),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'jbartsweb',
+        'USER': 'jb',
+        'PASSWORD': 'jbarts',
+        'HOST': 'nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ca': None},  # Ensure this is correct for your setup
+        },
+    },
 }
+
 
 
 
