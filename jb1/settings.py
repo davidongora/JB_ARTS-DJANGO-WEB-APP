@@ -13,14 +13,10 @@ import logging
 import os
 from pathlib import Path
 import pymysql
-import django_heroku  # Import here
+
 
 # to install PyMySQL as the MySQL driver
 pymysql.install_as_MySQLdb()
-
-#  debugging information
-logger = logging.getLogger('django.db.backends')
-logger.setLevel(logging.DEBUG)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -85,14 +81,11 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'y5ws8xuxtqamtg4p',
-        'USER': 'cwjfjrm0s7tk6oar',
-        'PASSWORD': 'esq45ychtvqo6kk9',
-        'HOST': 'nwhazdrp7hdpd4a4.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        'NAME': 'jbartsweb',
+        'USER': 'jb',
+        'PASSWORD': 'jbarts',
+        'HOST': 'localhost',
         'PORT': '3306',
-        'OPTIONS': {
-            'ssl': {'ca': '/etc/ssl/certs/ca-certificates.crt'}
-        }
     }
 }
 
@@ -135,7 +128,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files_django')
-django_heroku.settings(locals())
+
 
 # ADDING & FETCHING DATA FROM THE DATABASE
 # Path for the media(from the database)
