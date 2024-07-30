@@ -9,17 +9,31 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import logging
+# WEB DEPLOYMENT-HEROKU
+
 import os
+import django_heroku
+import dj_database_url
 from pathlib import Path
-import pymysql
+
 
 
 # to install PyMySQL as the MySQL driver
+import pymysql
+from django.conf.global_settings import EMAIL_USE_SSL
 pymysql.install_as_MySQLdb()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+# EMAIL VERIFICATION
+
+#  For production, use an SMTP server
+
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -32,6 +46,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +58,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Accounts',
+    'Home',
+    'jb1'
 ]
 
 MIDDLEWARE = [
@@ -75,6 +93,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'jb1.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -84,10 +103,11 @@ DATABASES = {
         'NAME': 'jbartsweb',
         'USER': 'jb',
         'PASSWORD': 'jbarts',
-        'HOST': 'localhost',
+        'HOST': 'localhost',  
         'PORT': '3306',
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -107,6 +127,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -118,8 +139,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Image)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
+
 
 STATIC_URL = 'static/'
 
@@ -128,21 +151,24 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files_django')
+django_heroku.settings(locals()
+
+
 
 
 # ADDING & FETCHING DATA FROM THE DATABASE
 # Path for the media(from the database)
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
 
 # url to use in the views
 MEDIA_URL = '/media/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
