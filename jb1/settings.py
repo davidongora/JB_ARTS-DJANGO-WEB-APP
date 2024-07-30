@@ -10,10 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 # WEB DEPLOYMENT-HEROKU
-
-import os
 import django_heroku
 import dj_database_url
+
+import os
 from pathlib import Path
 
 
@@ -58,9 +58,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Accounts',
-    'Home',
-    'jb1'
 ]
 
 MIDDLEWARE = [
@@ -151,7 +148,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_files_django')
-django_heroku.settings(locals()
+django_heroku.settings(locals())
+
 
 
 
