@@ -27,8 +27,8 @@ def register(request):
         last_name = request.POST['last_name']
         username = request.POST['username']
         email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
+        password1 = request.POST['password']
+        password2 = request.POST['password']
         
         if password1 == password2:   
             if User.objects.filter(username=username).exists():

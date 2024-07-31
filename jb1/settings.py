@@ -94,28 +94,28 @@ WSGI_APPLICATION = 'jb1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tg6no1nkrnpqtr97',
-        'USER': 'vbodoc5mk2il13ep',
-        'PASSWORD': 'du5hiaikinmzyb1c',
-        'HOST': 'fugfonv8odxxolj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',  
-        'PORT': '3306',
-    }
-}
-
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'jbartsweb',
-#         'USER': 'jb',
-#         'PASSWORD': 'jbarts',
-#         'HOST': 'localhost',  
+#         'NAME': 'tg6no1nkrnpqtr97',
+#         'USER': 'vbodoc5mk2il13ep',
+#         'PASSWORD': 'du5hiaikinmzyb1c',
+#         'HOST': 'fugfonv8odxxolj8.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',  
 #         'PORT': '3306',
 #     }
 # }
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'jbartsweb',
+        'USER': 'jb',
+        'PASSWORD': 'jbarts',
+        'HOST': 'localhost',  
+        'PORT': '3306',
+    }
+}
 
 
 # Password validation
